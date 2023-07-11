@@ -11,8 +11,13 @@ function Inputs() {
             />
             <UilSearch size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" />
               <UilLocationPoint size={25} className="text-white cursor-pointer transition ease-out hover:scale-125" />
-        </div>
-    </div>
+          </div>
+          <div className="flex flex-row items-center justify-center w-1/4 space-x-2">
+            <button name='matric' className="text-xl text-white font-light">°C</button>
+            <p>|</p>
+            <button name='matric' className="text-xl text-white font-light">°F</button>
+          </div>
+      </div>
   )
 }
 
