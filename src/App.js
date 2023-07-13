@@ -8,6 +8,8 @@ import TemperatureAndDetails from './components/TemperatureAndDetails';
 import Forecast from './components/Forecast';
 import getFormattedWeatherData from './services/weatherServices';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const [query, setQuery] = useState({q: 'dhaka'});
@@ -15,8 +17,15 @@ function App() {
   const [weather, setWeather] = useState(null);
 
   useEffect( ()=>{
+
     const fetchWeather = async () => {
-      await getFormattedWeatherData({...query, units}).then(data=>setWeather(data));
+      const message = query.q ? query.q : "current location.";
+      toast.info("Fetching weather for " + message.toUpperCase());
+      await getFormattedWeatherData({...query, units}).then(data=>{
+        toast.success(
+          `Succesfully fetched weather for ${data.name}, ${data.country}`
+        );
+        setWeather(data)});
       
     };
     fetchWeather();
@@ -43,6 +52,7 @@ function App() {
           <Forecast title="daily forecast" items={weather.daily} />
         </div>
       )}
+      <ToastContainer autoClose={5000} theme='colored' newestOnTop={true} />
     </div>
   );
 }
