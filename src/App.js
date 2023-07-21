@@ -40,7 +40,7 @@ function App() {
   };
   
   return (
-    <div className={`mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}>
+    <div className={`w-full h-full lg:mx-auto lg:max-w-screen-md lg:mt-4 py-5 lg:px-32 bg-gradient-to-br lg:h-fit shadow-xl shadow-gray-400 ${formatBackground()}`}>
       <TopButton setQuery={setQuery}/>
       <Inputs setQuery={setQuery} units={units} setUnits={setUnits} />
 
