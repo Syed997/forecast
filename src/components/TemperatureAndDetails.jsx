@@ -14,7 +14,7 @@ function TemperatureAndDetails({weather:{
     details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels_like, timezone
 }}) {
     return (
-        <div>
+        <div className='md:px-2'>
             <div className="flex items-center justify-center md:py-6 text-xl text-cyan-300">
                 <p>{details}</p>
             </div>
